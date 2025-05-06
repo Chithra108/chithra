@@ -2,18 +2,18 @@ trigger:
   - main
 
 pool:
-  name: Default  # Make sure this matches your self-hosted agent pool name
+  name: Default
 
 steps:
   - script: echo "Hello, it's my Azure DevOps App"
     displayName: 'Run an echo command'
 
-  - script: mvn clean install
+  - script: mvn clean install -X
     workingDirectory: $(Build.SourcesDirectory)
-    displayName: 'Build with Maven'
+    displayName: 'Build with Maven (debug)'
 
-  - script: dir "$(Build.SourcesDirectory)\target"
-    displayName: 'List files in target folder'
+  - script: dir /s "$(Build.SourcesDirectory)\target"
+    displayName: 'List all files in target folder'
 
   - script: java -jar "$(Build.SourcesDirectory)\target\HelloMaven-0.0.1-SNAPSHOT.jar"
     displayName: 'Run the built JAR'
