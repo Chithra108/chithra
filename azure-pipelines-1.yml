@@ -7,5 +7,5 @@ steps:
    displayName: 'Run an echo command'
  - script: mvn clean install
    displayName: 'Build with maven'
- - script: java -jar target/demoMaven-0.0.1-SNAPSHOT.jar
+ - script: java -jar target/prooject-0.0.1-SNAPSHOT.jar
    displayName: 'Run a jar file of My demoMaven App'
